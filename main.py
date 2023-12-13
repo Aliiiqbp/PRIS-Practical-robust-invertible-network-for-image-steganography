@@ -107,6 +107,14 @@ def train_epoch(net, step, optim=None, attack_method=None, i_epoch=None, writer=
             optim.step()
             optim.zero_grad()
 
+        elif mode == 'val':
+            ###### Ali
+            torchvision.utils.save_image(host, c.IMAGE_PATH_host + '%.5d.png' % i_batch)
+            torchvision.utils.save_image(container, c.IMAGE_PATH_container + '%.5d.png' % i_batch)
+            torchvision.utils.save_image(secret, c.IMAGE_PATH_secret + '%.5d.png' % i_batch)
+            torchvision.utils.save_image(extracted, c.IMAGE_PATH_extracted + '%.5d.png' % i_batch)
+            ###### Ali
+
         elif mode == 'test':
             torchvision.utils.save_image(host, c.IMAGE_PATH_host + '%.5d.png' % i_batch)
             torchvision.utils.save_image(container, c.IMAGE_PATH_container + '%.5d.png' % i_batch)
@@ -241,7 +249,3 @@ if __name__ == '__main__':
     lam = (lambda_c, lambda_s)
     for step in range(3):
         main(attack_method, step, start_epoch=0, end_epoch=1600, lam=lam)
-
-
-
-

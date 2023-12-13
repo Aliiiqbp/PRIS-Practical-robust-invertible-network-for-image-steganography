@@ -10,7 +10,7 @@ init_scale = 0.01
 device_ids = [0]
 
 # Train:
-batch_size = 8
+batch_size = 2  # 8
 cropsize = 224
 betas = (0.5, 0.999)
 weight_step = 200
@@ -24,8 +24,8 @@ val_freq = 10
 
 
 # Dataset
-TRAIN_PATH = '/home/Dataset/DIV2K/DIV2K_train_HR'
-VAL_PATH = '/home/Dataset/DIV2K/DIV2K_valid_HR'
+TRAIN_PATH = '/localhome/aga149/Documents/Research/PRIS/datasets/div2k/train/'
+VAL_PATH = '/localhome/aga149/Documents/Research/PRIS/datasets/div2k/val/'
 format_train = 'png'
 format_val = 'png'
 
@@ -41,7 +41,7 @@ progress_bar = True
 
 MODEL_PATH = 'model/'
 checkpoint_on_error = True
-SAVE_freq = 50
+SAVE_freq = 10
 
 IMAGE_PATH = 'image/'
 IMAGE_PATH_host= IMAGE_PATH + 'host/'
